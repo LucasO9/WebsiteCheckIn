@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption/Rescue Shelter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+        .section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            cursor: pointer; 
+        }
+        .section h2 {
+            margin-bottom: 10px; 
+        }
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: -10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: black;
+        }
+        #about {
+            background-color: #f2f2f2;
+        }
+        #adoptions {
+            background-color: #e6f7ff;
+        }
+        #donate {
+            background-color: #fde5e5;
+        }
+        #contact {
+            background-color: #ffffcc;
+        }
+        .image-section {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .image-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 10px; 
+        }
+        .content {
+            display: none; 
+            padding: 10px;
+        }
+        .welcome-header {
+            background-color: #ffcccc; 
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%; 
+            text-align: center; 
+        }
+        .welcome-header h2 {
+            margin: 0; 
+        }
+        .subscribe-section {
+            width: 100%;
+            background-color: #f2f2f2;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .subscribe-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            margin-right: 8px;
+        }
+        .subscribe-button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .subscribe-button:hover {
+            background-color: #45a049;
+        }
+        .more-info-section {
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="welcome-header">
+    <h2>Welcome to KobeMS where we hope you find what you need!</h2>
+</div>
+
+<div class="container">
+    <div id="about" class="section" onclick="toggleContent('aboutContent')">
+        <h2>About Us</h2>
+        <div id="aboutContent" class="content">
+            <p>We are a rescue shelter and a pet adoption website. Our goal is to save as many animals as humanly possible, to give them a forever home!
+                We at golden paws hold adoption events to help raise funds and help animals to get adopted. Our thought process for golden paws was “how can we help dogs” and so we made a shelter and a website to spread our viewpoint on saving every single dog humanly possible.
+            </p>
+        </div>
+    </div>
+    <div id="adoptions" class="section" onclick="toggleContent('adoptionsContent')">
+        <h2>Adoptions</h2>
+        <div id="adoptionsContent" class="content">
+            <p>If you want a future furry friend to take home with you, we got you covered!</p>
+            <p id="dogList"><a href="#" onclick="showDogList()">Click here</a> to view information on available dogs.</p>
+            <div id="dogsInfo" style="display:none;">
+                <p>Dog 1: Golden Retriever Name:Loona (Female)</p>
+                <p>Dog 2: Labrador Retriever Name:Skips (Male)</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="image-section">
+        <div class="image-container">
+            <img src="Dog1.png" alt="Left Image">
+            <img src="dog.png" alt="Dog">
+        </div>
+    </div>
+    <div id="donate" class="section" onclick="toggleContent('donateContent')">
+        <h2>Donations</h2>
+        <div id="donateContent" class="content">
+            <p>Donations help fund us and help our animals. We appreciate any and all donations so we can help our animals in need.</p>
+            <p>You can donate at www.Example/Kobems.com</p>
+        </div>
+    </div>
+    <div id="contact" class="section" onclick="toggleContent('contactContent')">
+        <h2>Contact Us</h2>
+        <div id="contactContent" class="content">
+            <p>Have questions about anything? Feel free to ask and reach out to us!</p>
+            <p>Twitter: @KobeMS_official</p>
+            <p>Phone Number: +123-456-7890</p>
+        </div>
+    </div>
+    <div class="more-info-section" onclick="toggleContent('moreInfoContent')">
+        <h2>More Information about us</h2>
+        <div id="moreInfoContent" class="content" style="display: none;">
+            <p>The Golden Paws Company from Kobems was formed with animal safety and protection in mind. This is largely due to the rising euthanization of dogs in kill shelters all around America. 
+                Kobems as a company founded Golden Paws to answer the question: “what can we do to help bring the average euthanization of dogs down?”  We saw a chance to make a shelter-based website to bring down dog euthanization. With this in mind we made our website to showcase the dogs in kill shelters and help them find homes. We’re looking forward to adoption events and collaborating with companies in the future.
+                </p>
+        </div>
+    </div>
+</div>
+
+<div class="subscribe-section">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form>
+        <input type="email" class="subscribe-input" placeholder="Enter your email">
+        <button type="submit" class="subscribe-button">Subscribe</button>
+    </form>
+</div>
+
+<script>
+    function toggleContent(id) {
+        var content = document.getElementById(id);
+        if (content.style.display === "none") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
+
+    function showDogList() {
+        var dogsInfo = document.getElementById('dogsInfo');
+        if (dogsInfo.style.display === "none") {
+            dogsInfo.style.display = "block";
+        } else {
+            dogsInfo.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
