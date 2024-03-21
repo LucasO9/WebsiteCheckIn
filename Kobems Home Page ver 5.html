@@ -25,15 +25,16 @@
             box-sizing: border-box;
             text-align: center;
             position: relative;
-            cursor: pointer; 
+            cursor: pointer;
+            border: 2px solid black;
         }
         .section h2 {
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
         }
         .section::after {
             content: "";
             position: absolute;
-            bottom: -10px; 
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 50px;
@@ -66,28 +67,40 @@
         .image-container img {
             max-width: 100%;
             height: auto;
-            margin: 0 10px; 
+            margin: 0 10px;
         }
         .content {
-            display: none; 
+            display: none;
             padding: 10px;
         }
         .welcome-header {
-            background-color: #ffcccc; 
+            background-color: #ffcccc;
             padding: 20px;
             margin-bottom: 20px;
-            width: 100%; 
-            text-align: center; 
+            width: 100%;
+            text-align: center;
+            border: 2px solid black; 
         }
         .welcome-header h2 {
-            margin: 0; 
+            margin: 0;
         }
-        .subscribe-section {
+        .more-info-section {
             width: 100%;
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+        }
+        .subscribe-section {
+            width: 100%;
+            background-color: #4CAF50;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+        }
+        .subscribe-section h2 {
+            margin-bottom: 20px;
         }
         .subscribe-input {
             padding: 8px;
@@ -96,20 +109,13 @@
         }
         .subscribe-button {
             padding: 8px 16px;
-            background-color: #4CAF50;
+            background-color: #45a049;
             color: white;
             border: none;
             cursor: pointer;
         }
         .subscribe-button:hover {
-            background-color: #45a049;
-        }
-        .more-info-section {
-            width: 100%;
-            background-color: #f9f9f9;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
+            background-color: #4CAF50;
         }
     </style>
 </head>
@@ -161,40 +167,22 @@
             <p>Phone Number: +123-456-7890</p>
         </div>
     </div>
-    <div class="more-info-section" onclick="toggleContent('moreInfoContent')">
-        <h2>More Information about us</h2>
-        <div id="moreInfoContent" class="content" style="display: none;">
-            <p>The Golden Paws Company from Kobems was formed with animal safety and protection in mind. This is largely due to the rising euthanization of dogs in kill shelters all around America. 
-                Kobems as a company founded Golden Paws to answer the question: “what can we do to help bring the average euthanization of dogs down?”  We saw a chance to make a shelter-based website to bring down dog euthanization. With this in mind we made our website to showcase the dogs in kill shelters and help them find homes. We’re looking forward to adoption events and collaborating with companies in the future.
-                </p>
-        </div>
+    <div class="subscribe-section">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form>
+            <input type="email" class="subscribe-input" placeholder="Enter your email">
+            <button type="submit" class="subscribe-button">Subscribe</button>
+        </form>
     </div>
 </div>
 
-<div class="subscribe-section">
-    <h2>Subscribe to Our Newsletter</h2>
-    <form>
-        <input type="email" class="subscribe-input" placeholder="Enter your email">
-        <button type="submit" class="subscribe-button">Subscribe</button>
-    </form>
-</div>
-
 <script>
-    function toggleContent(id) {
-        var content = document.getElementById(id);
+    function toggleContent(contentId) {
+        var content = document.getElementById(contentId);
         if (content.style.display === "none") {
             content.style.display = "block";
         } else {
             content.style.display = "none";
-        }
-    }
-
-    function showDogList() {
-        var dogsInfo = document.getElementById('dogsInfo');
-        if (dogsInfo.style.display === "none") {
-            dogsInfo.style.display = "block";
-        } else {
-            dogsInfo.style.display = "none";
         }
     }
 </script>
